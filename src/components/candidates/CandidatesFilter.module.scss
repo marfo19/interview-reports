@@ -1,0 +1,15 @@
+.filter {
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 0;
+	border-bottom: 1px solid #ccc;
+
+	input {
+		border-radius: 10px;
+		border: 1px solid #ccc;
+		padding-left: 20px;
+		background: url("../../assets/search.svg") no-repeat;
+		background-size: 15px;
+		background-position: center left 3px;
+	}
+}
