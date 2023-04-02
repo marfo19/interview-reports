@@ -1,10 +1,10 @@
 import "./CandidateItem.module.scss";
 import { Link } from "react-router-dom";
 
-const CandidateItem = ({ emailProp, avatarProp, nameProp }) => {
+const CandidateItem = ({ idProp, emailProp, avatarProp, nameProp }) => {
   return (
     <li>
-      <Link to="/reports">
+      <Link to={`/reports/${idProp}`}>
         <img src={avatarProp} alt="" />
         <div>{nameProp}</div>
         <div>{emailProp}</div>

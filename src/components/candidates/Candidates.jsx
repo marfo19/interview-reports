@@ -5,7 +5,7 @@ import AvailableCandidates from "./AvailableCandidates";
 
 import classes from "./Candidates.module.scss";
 
-const Candidates = (props) => {
+const Candidates = () => {
   const [candidates, setCandidates] = useState([]);
   const [filteredCandidates, setfilteredCandidates] = useState([]);
 
@@ -47,7 +47,7 @@ const Candidates = (props) => {
   return (
     <section className={classes.candidates}>
       <CandidatesFilter onFilter={filterCandidates} />
-      {/* <AvailableCandidates candidatesProp={candidates.slice(0, 6)} /> */}
+      {/* <AvailableCandidates candidatesProp={candidates} /> */}
       <AvailableCandidates candidatesProp={filteredCandidates.slice(0, 6)} />
     </section>
   );
