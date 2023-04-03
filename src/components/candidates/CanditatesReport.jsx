@@ -1,11 +1,13 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState, React } from "react";
+import Modal from "../layouts/Modal";
 
 const CanditatesReport = () => {
 
   const { candId } = useParams();
   const [candidate, setCandidate] = useState([]);
   const [reports, setReports] = useState();
+  const [openModal, setopenModal] = useState(false);
 
   useEffect(() => {
     const fetchCandidate = async () => {
@@ -35,12 +37,22 @@ const CanditatesReport = () => {
       })
   })
 
+  function convDate(interviewDate) {
+    let dateOfInterview = [];
+    let day = new Date(interviewDate).getDate();
+          let month = new Date(interviewDate).getMonth() + 1;
+          let year = new Date(interviewDate).getFullYear();
+
+          dateOfInterview.push(`${day}.${month}.${year}`);
+          return dateOfInterview;
+  }
+
   // filtering data for selected candidate
-  // let singleReport = reports.filter((report) => {
-  //   if (parseInt(candId) === report.candidateId) {
-  //     return report;
-  //   }
-  // });
+  let singleReport = reports.filter((report) => {
+    if (parseInt(candId) === report.candidateId) {
+      return report;
+    }
+  });
 
   return (
     <div className="candidatesReport">
@@ -59,40 +71,44 @@ const CanditatesReport = () => {
       </div>
       <div>
         <h1>Reports</h1>
-        {/* <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">Company</th>
-                  <th scope="col">Interview Date</th>
-                  <th scope="col" colSpan="2">
-                    Status
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Interview Date</th>
+              <th>
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {singleReport.map((item, index) => {
+              // getting data from singleReport
+              console.log(item, index);
+              return (
+                <tr key={item.id}>
+                  <td>{item.companyName}</td>
+                  <td>{convDate(item.interviewDate)}</td>
+                  <td>{item.status}</td>
+                  <th scope="row" width="10%">
+                    <button className='openModalBtn'onClick={() => {
+                      setopenModal(true);
+                    }}>
+                      Modal
+                    </button>
+                    {openModal && <Modal
+                      closeModal={setopenModal}
+                      data={item}
+                      index={index}
+                    />}
                   </th>
                 </tr>
-              </thead>
-              <tbody>
-                {singleReport.map((item, index) => {
-
-                  // getting data from singleReport
-                  return (
-                    <tr key={item.id}>
-                      <td>{item.companyName}</td>
-                      <td>{item.interviewDate}</td>
-                      <td>{item.status}</td>
-                      <th scope="row" width="10%">
-                        
-                      </th>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table> */}
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div >
   );
 };
 export default CanditatesReport;
-{/* <Modal // additional info for selected interview
-                          data={item}
-                          index={index}
-                          interviewDate={interviewDate[index]}
-                        /> */}

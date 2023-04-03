@@ -47,7 +47,7 @@ const Candidates = () => {
   return (
     <section className={classes.candidates}>
       <CandidatesFilter onFilter={filterCandidates} />
-      {/* <AvailableCandidates candidatesProp={candidates} /> */}
+      {/* <AvailableCandidates candidatesProp={candidates.slice(0, 6)} /> */}
       <AvailableCandidates candidatesProp={filteredCandidates.slice(0, 6)} />
     </section>
   );
