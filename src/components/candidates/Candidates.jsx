@@ -33,24 +33,22 @@ const Candidates = () => {
   }, []);
 
   const filterCandidates = (value) => {
-    const filtered = [];
+    const filtered = candidates.filter((cand) =>
+      cand.name.toLowerCase().includes(value.toLowerCase())
+    );
+
     if (value.trim() === "") {
       setfilteredCandidates(candidates);
     } else {
-      filtered = candidates.filter((cand) =>
-      cand.name.toLowerCase().includes(value.toLowerCase())
-    );
       setfilteredCandidates(filtered);
     }
-    
-
-    
   };
 
   return (
     <section className={classes.candidates}>
       <CandidatesFilter onFilter={filterCandidates} />
-      <AvailableCandidates candidatesProp={filteredCandidates} />
+      {/* <AvailableCandidates candidatesProp={candidates.slice(0, 6)} /> */}
+      <AvailableCandidates candidatesProp={filteredCandidates.slice(0, 6)} />
     </section>
   );
 };
