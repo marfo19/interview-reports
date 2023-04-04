@@ -1,5 +1,4 @@
 import CandidatesItem from "./CandidateItem";
-
 import "./AvailableCandidates.module.scss";
 
 const AvailableCandidates = ({ candidatesProp }) => {
@@ -14,7 +13,6 @@ const AvailableCandidates = ({ candidatesProp }) => {
       />
     );
   });
-
   return (
     <>
       <ul>{candidateList}</ul>

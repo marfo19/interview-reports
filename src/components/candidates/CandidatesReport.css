@@ -1,0 +1,48 @@
+* {
+    font-family: arial;
+  }
+
+.candDatas {
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+}
+
+
+
+.dataBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 33%;
+    font-size: x-large;
+}
+.grey {
+    color: grey;
+}
+
+.bold {
+    font-size: x-large;
+}
+
+.reports {
+    padding: 25px;
+}
+
+table {
+    padding: 25px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+th {
+    background-color: grey;
+}
+
+tr:nth-child(even) {background: #CCC}
