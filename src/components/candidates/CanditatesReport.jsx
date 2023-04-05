@@ -47,7 +47,6 @@ const CanditatesReport = () => {
     return dateOfInterview;
   }
 
-  // filtering data for selected candidate
   let singleReport = reports.filter((report) => {
     if (parseInt(candId) === report.candidateId) {
       return report;
@@ -64,10 +63,10 @@ const CanditatesReport = () => {
       {openModal && <Modal closeModal={setopenModal} data={item} />}
       <div className='candDatas'>
         <div className='dataBox'>
-        <img src={candidate.avatar} alt='Place for avatar' width={300}></img>
+          <img src={candidate.avatar} alt='Place for avatar' width={300}></img>
         </div>
         <div className='dataBox'>
-          <p  className="grey">Name</p>
+          <p className="grey">Name</p>
           <p className="bold">{candidate.name}</p>
           <p></p>
           <p></p>
@@ -99,7 +98,6 @@ const CanditatesReport = () => {
           </thead>
           <tbody>
             {singleReport.map((item, index) => {
-              // getting data from singleReport
               return (
                 <tr key={item.id}>
                   <td>{item.companyName}</td>

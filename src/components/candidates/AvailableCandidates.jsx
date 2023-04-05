@@ -19,5 +19,4 @@ const AvailableCandidates = ({ candidatesProp }) => {
     </>
   );
 };
-
 export default AvailableCandidates;
